@@ -1,2 +1,2 @@
-# conn_pool_sim
-Mariadb Connection Pool Simulator
+# Mariadb Connection Pool Simulator
+Work in progress...
