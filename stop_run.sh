@@ -11,5 +11,5 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 source ${SCRIPT_DIR}/vsn.sh
 
-touch ${SCRIPT_DIR}/STOP_NOW
+touch ${SCRIPT_DIR}/STOP_NOW && echo "Created stop file: ${SCRIPT_DIR}/STOP_NOW. Wait 10 seconds for Connection Pool Simulator to stop." || echo "Something unexpected occurred."
 

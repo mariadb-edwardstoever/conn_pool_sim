@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # pre_connect.sh
-# file distributed with con_pool_sim Connection Pool Simulator
+# file distributed with con_pool_sim Mariadb Connection Pool Simulator
 # By Edward Stoever for MariaDB Support
 
 TMPDIR="/tmp"
