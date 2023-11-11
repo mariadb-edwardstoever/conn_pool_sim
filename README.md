@@ -53,9 +53,9 @@ The connection pool simulator will run whatever sql scripts that are placed in t
 
 "QPM" or queries per minute is the number of sql scripts sent to the connection pool per minute.
 
-If you set a value for  `--qpm_low` and do not set a value for `--qpm_high`, the simulator will send a constant number of sql scripts per minute.
+If you set a value for  `--qpm_low` and do not set a value for `--qpm_high`, the simulator will send a constant number of sql scripts per minute. The option `--qpm_low` cannot be set lower than 60.
 
-If you set a value for `--qpm_low` and also set a value for `--qpm_high`, the simulator will vary the number of sql scripts sent per minute, from low to high. The variance will adjust at random every 10 seconds. 
+If you set a value for `--qpm_low` and also set a value for `--qpm_high`, the simulator will vary the number of sql scripts sent per minute, from low to high. The variance will adjust at random every 10 seconds.   The option `--qpm_high` cannot be set lower than `--qpm_low`.
 
 ### Stopping the Simulator prematurely
 
