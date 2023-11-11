@@ -15,11 +15,11 @@ The Mariadb Connection Pool Simulator is a bash script that uses the Mariadb com
 ### Setting up the Simulator
 There are two steps to setting up the simulator:
 
- 1. In the SQL directory, you will find some sample sql scripts. Replace the sample sql scripts with your scripts. You can use any script that can be run by the MariaDB client. Commands must be closed with a ";" or "\G". You can have multiple commands in a given script. There is no limit to the number of scripts you can place in the directory. Scripts are chosen to be run at random. You can use DML commands and SELECT commands. You can combine low-cost queries with high-cost queries. You can set the chances that a script is run by skewing the number of scripts that run one operation against the number of scripts that run another operation.
+ 1. In the SQL directory, you will find some sample sql scripts. Replace the sample sql scripts with your scripts. You can use any sql script that can be run by the MariaDB client. Commands must be closed with a ";" or "\G". You can have multiple commands in a given sql script. There is no limit to the number of sql scripts you can place in the SQL directory. Scripts are chosen to be run at random. You can include DML commands, DDL commands, SELECT commands, or compound statements. You can include sql scripts with low-cost queries and sql scripts with high-cost queries. You can set the chances that a sql script is run by skewing the number of scripts that run one operation against the number of scripts that run another operation.
  
  2. Edit the file simulator.cnf and configure the connection.
 
-### Examples of running the script on the command line
+### Examples of running the Simulator from the command line
 
 ```
 ./conn_pool_sim.sh
@@ -57,13 +57,13 @@ If you set a value for  `--qpm_low` and do not set a value for `--qpm_high`, the
 
 If you set a value for `--qpm_low` and also set a value for `--qpm_high`, the simulator will vary the number of sql scripts sent per minute, from low to high. The variance will adjust at random every 10 seconds. 
 
-### Stopping the script prematurely
+### Stopping the Simulator prematurely
 
-You can quit a running connection pool at any time with ctrl+C. This will leave processes running that will require a clean-up. Run the script again with the cleanup option:
+You can quit a running connection pool at any time with ctrl+C. This will leave processes running that will require a clean-up. Run the simulator script again with the cleanup option:
 ```
 ./conn_pool_sim --cleanup
 ```
-For a graceful shutdown that does not require clean up, stop the running process from a separate command line with the stop_run.sh script:
+For a graceful shutdown that does not require clean up, stop the running simulator from a separate command line with the stop_run.sh script:
 ```
 ./stop_run.sh
 ```
