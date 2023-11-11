@@ -59,7 +59,7 @@ If you set a value for `--qpm_low` and also set a value for `--qpm_high`, the si
 
 ### Stopping the Simulator prematurely
 
-You can quit a running connection pool at any time with ctrl+C. This will leave processes running that will require a clean-up. Run the simulator script again with the cleanup option:
+You can quit a running connection pool at any time with ctrl+c. This will leave processes running that will require a clean-up. Run the simulator script again with the cleanup option:
 ```
 ./conn_pool_sim --cleanup
 ```
