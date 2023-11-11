@@ -15,7 +15,7 @@ The Mariadb Connection Pool Simulator is a bash script that uses the Mariadb com
 ### Setting up the Simulator
 There are two steps to setting up the simulator:
 
- 1. In the SQL directory, you will find some sample sql scripts. Replace the generic sql scripts with your scripts. You can use any script that can be run by the MariaDB client. Commands must be closed with a ";" or "\G". You can have multiple commands in a given script. There is no limit to the number of scripts you can place in the directory. Scripts are chosen to be run at random. You can use DML commands and SELECT commands. You can combine low-cost queries with high-cost queries. You can set the chances that a script is run by skewing the number of scripts that run one operation against the number of scripts that run another operation.
+ 1. In the SQL directory, you will find some sample sql scripts. Replace the sample sql scripts with your scripts. You can use any script that can be run by the MariaDB client. Commands must be closed with a ";" or "\G". You can have multiple commands in a given script. There is no limit to the number of scripts you can place in the directory. Scripts are chosen to be run at random. You can use DML commands and SELECT commands. You can combine low-cost queries with high-cost queries. You can set the chances that a script is run by skewing the number of scripts that run one operation against the number of scripts that run another operation.
  
  2. Edit the file simulator.cnf and configure the connection.
 
@@ -25,9 +25,9 @@ There are two steps to setting up the simulator:
 ./conn_pool_sim.sh
 ./conn_pool_sim.sh --help
 ./conn_pool_sim.sh --minutes=100
-./conn_pool_sim.sh --minutes=100 --qpm_low=100
-./conn_pool_sim.sh --minutes=100 --qpm_low=100 --qpm_high=1000
-./conn_pool_sim.sh --minutes=100 --qpm_low=100 --qpm_high=1000 --connections=40
+./conn_pool_sim.sh --minutes=100 --qpm_low=300
+./conn_pool_sim.sh --minutes=100 --qpm_low=200 --qpm_high=1000
+./conn_pool_sim.sh --minutes=100 --qpm_low=200 --qpm_high=1000 --connections=40
 ./conn_pool_sim.sh --cleanup
 ```    
     
@@ -49,11 +49,11 @@ This script can be run without options. Not indicating an option value will use 
 
 ### Queries Per Minute
 
-The connection pool simulator will run whatever sql files (scripts) are placed in the SQL directory, chosen at random. Generic scripts that will run on any Mariadb database are provided. They should be replaced with your scripts. Files should written in text and end with ".sql".
+The connection pool simulator will run whatever sql files (scripts) are placed in the SQL directory, chosen at random. Generic scripts that will run on any Mariadb database are provided. They should be replaced with your scripts. Files should written in text. File names must end with ".sql".
 
 "QPM" or queries per minute is the number of sql scripts sent to the connection pool per minute.
 
-If you set a value for  `--qpm_low` and not a value for `--qpm_high`, the simulator will send a constant number of sql scripts per minute.
+If you set a value for  `--qpm_low` and do not set a value for `--qpm_high`, the simulator will send a constant number of sql scripts per minute.
 
 If you set a value for `--qpm_low` and also a value for `--qpm_high`, the simulator will vary the number of sql scripts sent per minute, from low to high. The variance will adjust at random every 10 seconds. 
 
