@@ -14,9 +14,6 @@ source ${SCRIPT_DIR}/pre_connect.sh
 
 display_title
 start_message
-
-
-
 make_fifo_dir
 verify_fifo_dir
 start_connection_pool

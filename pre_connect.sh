@@ -145,7 +145,7 @@ for (( cc=1; cc<=$CONNS; cc++))
 
 
 function kill_all_sleepers(){
-  if [ ! -f $FIFO_DIR/SLEEP_PID_LIST ]; then die "The file $FIFO_DIR/SLEEP_PID_LIST does not exist."; fi
+  if [ ! -f $FIFO_DIR/SLEEP_PID_LIST ]; then die "The file $FIFO_DIR/SLEEP_PID_LIST does not exist. Nothing to do."; fi
   kill -9 $(cat $FIFO_DIR/SLEEP_PID_LIST)  
   rm -f $FIFO_DIR/SLEEP_PID_LIST
   find $FIFO_DIR/ -type p -exec rm -f {} \; || die "Could not remove FIFO files."
@@ -346,6 +346,7 @@ fi
 
 CLOPTS=$($CMD_MY_PRINT_DEFAULTS --defaults-file=$CONFIG_FILE conn_pool_sim | sed -z -e "s/\n/ /g")
 if [ -f ${SCRIPT_DIR}/STOP_NOW ]; then rm -f ${SCRIPT_DIR}/STOP_NOW; fi
+if [ "$(find $SQL_DIR/ -type f -name "*.sql" | wc -l)" == "0" ]; then die "No SQL files to run! Place some SQL scripts into the SQL directory."; fi
 
 if [ "$CLEANUP" == "TRUE" ]; then 
  if [ -f "$FIFO_DIR/SQL_ERRORS" ]; then rm -f $FIFO_DIR/SQL_ERRORS; fi

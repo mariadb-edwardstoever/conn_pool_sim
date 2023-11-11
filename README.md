@@ -17,7 +17,7 @@ There are two steps to setting up the simulator:
 
  1. In the SQL directory, you will find some sample sql scripts. Replace the generic sql scripts with your scripts. You can use any script that can be run by the MariaDB client. Commands must be closed with a ";" or "\G". You can have multiple commands in a given script. There is no limit to the number of scripts you can place in the directory. Scripts are chosen to be run at random. You can use DML commands and SELECT commands. You can combine low-cost queries with high-cost queries. You can set the chances that a script is run by skewing the number of scripts that run one operation against the number of scripts that run another operation.
  
- 2. Edit the file file simulator.cnf and configure the connection.
+ 2. Edit the file simulator.cnf and configure the connection.
 
 ### Examples of running the script on the command line
 
