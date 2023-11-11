@@ -1,7 +1,7 @@
 # Mariadb Connection Pool Simulator
 
 ### What is a connection pool?
-To avoid connecting repeatedly or maintaining individual sessions for many users, applications use a connection pools.
+To avoid connecting repeatedly or maintaining individual sessions for many users, applications use connection pools.
 
 The simplest way to think of a connection pool is 100 users connecting to an application and the application routing their requests through 10 pre-established connections to the database. This practice allows the application and database to handle more requests because the overhead of establishing new connections and maintaining idle connections is minimized.
 
