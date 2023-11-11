@@ -15,7 +15,7 @@ The Mariadb Connection Pool Simulator is a bash script that uses the Mariadb com
 ### Setting up the Simulator
 There are two steps to setting up the simulator:
 
- 1. In the SQL directory, you will find some sample sql scripts. Replace the sample sql scripts with your scripts. You can use any sql script that can be run by the MariaDB client. Commands must be closed with a ";" or "\G". You can have multiple commands in a given sql script. There is no limit to the number of sql scripts you can place in the SQL directory. Scripts are chosen to be run at random. You can include DML commands, DDL commands, SELECT commands, or compound statements. You can include sql scripts with low-cost queries and sql scripts with high-cost queries. You can set the chances that a sql script is run by skewing the number of scripts that run one operation against the number of scripts that run another operation.
+ 1. In the SQL directory, you will find some sample sql scripts. Replace the sample sql scripts with your scripts. Each command must be closed with a ";" or "\G". You can include multiple commands in a given sql script. Scripts are chosen to be run at random. You can include DML commands, DDL commands, SELECT commands, or compound statements. You can include sql scripts with low-cost queries and sql scripts with high-cost queries. You can set the chances that a sql script is run by skewing the number of scripts that run one operation against the number of scripts that run another operation. Files must written in text. File names must end with ".sql".
  
  2. Edit the file simulator.cnf and configure the connection.
 
@@ -49,7 +49,7 @@ This script can be run without options. Not indicating an option value will use 
 
 ### Queries Per Minute
 
-The connection pool simulator will run whatever sql files (scripts) are placed in the SQL directory, chosen at random. Generic scripts that will run on any Mariadb database are provided. They should be replaced with your scripts. Files should written in text. File names must end with ".sql".
+The connection pool simulator will run whatever sql scripts that are placed in the "SQL" directory, chosen at random. Generic scripts that will run on any Mariadb database are provided. They should be replaced with your sql scripts. 
 
 "QPM" or queries per minute is the number of sql scripts sent to the connection pool per minute.
 
