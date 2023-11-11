@@ -55,7 +55,7 @@ The connection pool simulator will run whatever sql files (scripts) are placed i
 
 If you set a value for  `--qpm_low` and do not set a value for `--qpm_high`, the simulator will send a constant number of sql scripts per minute.
 
-If you set a value for `--qpm_low` and also a value for `--qpm_high`, the simulator will vary the number of sql scripts sent per minute, from low to high. The variance will adjust at random every 10 seconds. 
+If you set a value for `--qpm_low` and also set a value for `--qpm_high`, the simulator will vary the number of sql scripts sent per minute, from low to high. The variance will adjust at random every 10 seconds. 
 
 ### Stopping the script prematurely
 
