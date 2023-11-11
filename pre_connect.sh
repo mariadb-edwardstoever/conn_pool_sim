@@ -256,7 +256,7 @@ function spin_sql(){
   local NEXT_MESSAGE=$((${NW} + 10))
   local SQL_RUNS=0
   TEMP_COLOR=lmagenta; print_color "Elapsed seconds: "; unset TEMP_COLOR;  printf "%'.f" "0"
-  TEMP_COLOR=lmagenta; print_color "   SQL commands sent to connection pool: "; unset TEMP_COLOR;  printf "%'.f\n" "$SQL_RUNS" 
+  TEMP_COLOR=lmagenta; print_color "   SQL scripts sent to connection pool: "; unset TEMP_COLOR;  printf "%'.f\n" "$SQL_RUNS" 
   sleep 1 # prevents a count of 1 at 0 seconds
   while [[ "$(( $NW - $(( ${MINS} * 60 )) ))" -le "$STARTTIME" ]]; do
     (echo "${ALL_SQL_TEXT[$(((RANDOM % $SQFILES)))]}" > "${ALL_FIFOS[$(((RANDOM % $FIFOFILES)))]}" ) & disown  
@@ -264,7 +264,7 @@ function spin_sql(){
     sleep $SLEEP_INTERVAL
     if [[ "$NW" -ge "$NEXT_MESSAGE" ]]; then
 	  TEMP_COLOR=lmagenta; print_color "Elapsed seconds: "; unset TEMP_COLOR;  printf "%'.f" "$((NW - STARTTIME))"
-      TEMP_COLOR=lmagenta; print_color "   SQL commands sent to connection pool: "; unset TEMP_COLOR;  printf "%'.f\n" "$SQL_RUNS"
+      TEMP_COLOR=lmagenta; print_color "   SQL scripts sent to connection pool: "; unset TEMP_COLOR;  printf "%'.f\n" "$SQL_RUNS"
 
 	  local NEXT_MESSAGE=$(( $NEXT_MESSAGE+10 ))
       if [ -f ${SCRIPT_DIR}/STOP_NOW ]; then break; fi

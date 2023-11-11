@@ -6,7 +6,7 @@ To avoid connecting repeatedly or maintaining individual sessions for many users
 The simplest way to think of a connection pool is 100 users connecting to an application and the application routing their requests through 10 pre-established connections to the database. This practice allows the application and database to handle more requests because the overhead of establishing new connections and maintaining idle connections is minimized.
 
 ### Connection Pool Simulator
-The Mariadb Connection Pool Simulator is a bash script that uses the Mariadb command line client to create a connection pool and send sample queries to it. Possible uses:
+The Mariadb Connection Pool Simulator is a bash script that uses the Mariadb command line client to create a connection pool and sql scripts to it. Possible uses:
 
  - Develop database software
  - Test database performance
